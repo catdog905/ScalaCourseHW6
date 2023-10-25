@@ -13,5 +13,7 @@ final case class ComplexNumber(real: Double, imaginary: Double) {
     (real - o.real).abs < 1e-6 && (imaginary - o.imaginary).abs < 1e-6
 }
 
-object ComplexNumber
-// DO NOT CHANGE ANYTHING ABOVE
+object ComplexNumber {
+  // DO NOT CHANGE ANYTHING ABOVE
+
+}
