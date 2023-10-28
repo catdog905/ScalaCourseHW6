@@ -49,7 +49,7 @@ object ComplexNumber {
 
     def negate(x: ComplexNumber): ComplexNumber = ComplexNumber(-x.real, -x.imaginary)
 
-    def fromInt(x: Int): ComplexNumber = ComplexNumber(x, 0)
+    def fromInt(x: Int): ComplexNumber = ComplexNumber(x.toDouble, 0)
 
     def toInt(x: ComplexNumber): Int = x.real.toInt
 
@@ -73,7 +73,7 @@ object ComplexNumber {
         case complexNumberPattern(r, i) =>
           (r.toDoubleOption, i.toDoubleOption) match {
             case (Some(real), Some(imag)) => Some(ComplexNumber(real, imag))
-            case _ => None
+            case _                        => None
           }
         case _ => None
       }
@@ -84,10 +84,10 @@ object ComplexNumber {
     def z(args: Any*): ComplexNumber = {
       val strings = sc.parts.iterator
       val expressions = args.iterator
-      val buf = new StringBuilder(strings.next)
+      val buf = new StringBuilder(strings.next())
       while (strings.hasNext) {
-        buf.append(expressions.next)
-        buf.append(strings.next)
+        buf.append(expressions.next())
+        buf.append(strings.next())
       }
       val parts = buf.toString.split("\\+|i")
       ComplexNumber(parts(0).toDouble, parts(1).toDouble)
