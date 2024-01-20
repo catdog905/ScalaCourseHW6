@@ -15,7 +15,7 @@
 final case class ComplexNumber(real: Double, imaginary: Double) {
   def *(other: ComplexNumber) =
     ComplexNumber(
-      (real * other.real) + (imaginary * other.imaginary),
+      (real * other.real) - (imaginary * other.imaginary),
       (real * other.imaginary) + (imaginary * other.real)
     )
 
@@ -34,7 +34,7 @@ object ComplexNumber
 
 1. Добавить операции вычитания и деления (тут можно кидать нужный runtime exception), а также полярную форму для каждого
    инстанса класса `ComplexNumber`.
-2. Добавить возможность использовать все методы с числовыми
+2. Добавить возможность использовать все методы ComplexNumber с числовыми
    типами ([Numeric](https://www.scala-lang.org/api/2.13.10/scala/math/Numeric.html)).
 3. Добавить возможность создавать комплексные числа при помощи специального синтаксиса, напоминающего алгебраическое
    представление комплексных чисел `z = a + bi`.
